@@ -1,0 +1,4 @@
+#Mon Jul 03 03:31:39 IST 2023
+base.0=C\:\\Users\\harsh\\Desktop\\Flutter_Projects\\quiz_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
