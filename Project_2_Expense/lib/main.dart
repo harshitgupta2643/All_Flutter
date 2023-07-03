@@ -99,27 +99,38 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // final titleController = TextEditingController();
     //final amountController = TextEditingController();
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColorDark,
-        title: Text(
-          'Personal Expenses',
-          style: TextStyle(fontFamily: 'Open Sans'),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () => _startAddNewTransaction(context),
-            icon: Icon(Icons.add),
-          ),
-        ],
+    final appbar = AppBar(
+      backgroundColor: Theme.of(context).primaryColorDark,
+      title: Text(
+        'Personal Expenses',
+        style: TextStyle(fontFamily: 'Open Sans'),
       ),
+      actions: [
+        IconButton(
+          onPressed: () => _startAddNewTransaction(context),
+          icon: Icon(Icons.add),
+        ),
+      ],
+    );
+    return Scaffold(
+      appBar: appbar,
       body: SingleChildScrollView(
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Chart(_recentTransaction),
-            TransactionList(_userTransaction, _deleteTx),
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appbar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.2,
+                child: Chart(_recentTransaction)),
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appbar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.8,
+                child: TransactionList(_userTransaction, _deleteTx)),
           ],
         ),
       ),
